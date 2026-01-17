@@ -17,9 +17,7 @@ export default function Landing() {
       {/* SCROLL CONTENT */}
       <div className="scroll-container">
         <section className="hero" />
-        <section id="scroll-section" className="ring-scroll">
-          <div style={{ background: "Red" }}>hey</div>
-        </section>
+        <section id="scroll-section" className="ring-scroll"></section>
         <section className="end" />
       </div>
     </div>

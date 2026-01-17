@@ -1,29 +1,15 @@
 import { useGLTF } from "@react-three/drei";
-import { useEffect } from "react";
+import { forwardRef } from "react";
+import Diamond from "./Diamond";
 
-export default function Ring({ ringRef }) {
+export default forwardRef(function Ring(props, ref) {
   const { nodes } = useGLTF("/ring.glb");
 
-  useEffect(() => {
-    if (!ringRef.current) return;
-
-    ringRef.current.scale.set(0.6, 0.6, 0.6);
-    ringRef.current.position.set(0, -1.2, 0.4); // 👈 bring in front
-
-    ringRef.current.traverse((child) => {
-      if (child.isMesh && child.material) {
-        child.material.transparent = true;
-        child.material.opacity = 0; // start hidden
-        child.material.depthWrite = true;
-        child.material.needsUpdate = true;
-      }
-    });
-  }, []);
-
   return (
-    <group ref={ringRef}>
+    <group ref={ref} visible={false} position={[0, -2, 0]}>
       <primitive object={nodes.gold} />
       <primitive object={nodes.silver} />
+      <Diamond ref={props.diamondRef} />
     </group>
   );
-}
+});
