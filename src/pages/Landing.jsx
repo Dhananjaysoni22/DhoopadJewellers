@@ -6,15 +6,22 @@ import CameraLogger from "../helpers/CameraLogger";
 export default function Landing() {
   return (
     <div className="landing">
-      <Canvas
-        camera={{ position: [0, 0, 8], fov: 35 }}
-        gl={{ antialias: true }}
-      >
+      {/* FIXED CANVAS */}
+      <Canvas camera={{ fov: 35 }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
           <Scene />
         </Suspense>
         <CameraLogger />
       </Canvas>
+
+      {/* SCROLL CONTENT */}
+      <div className="scroll-container">
+        <section className="hero" />
+        <section id="scroll-section" className="ring-scroll">
+          <div style={{ background: "Red" }}>hey</div>
+        </section>
+        <section className="end" />
+      </div>
     </div>
   );
 }

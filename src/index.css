@@ -3,11 +3,33 @@ body,
 #root {
   margin: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  /* height: 100%;   */
+  /* overflow: hidden; */
+  /* overflow-y: auto; ✅ allow scroll */
 }
 
 .landing {
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+/* FIX CANVAS */
+canvas {
+  position: fixed !important;
+  inset: 0;
+  z-index: 0;
+} /* Scroll content above canvas */
+.scroll-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+} /* Scroll sections */
+.hero {
+  height: 100vh;
+}
+.ring-scroll {
+  height: 200vh;
+}
+.end {
   height: 100vh;
 }
