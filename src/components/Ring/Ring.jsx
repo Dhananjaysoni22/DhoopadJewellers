@@ -1,15 +1,55 @@
 import { useGLTF } from "@react-three/drei";
-import { forwardRef } from "react";
-import Diamond from "./Diamond";
+import { forwardRef, useEffect } from "react";
+import * as THREE from "three";
 
 export default forwardRef(function Ring(props, ref) {
-  const { nodes } = useGLTF("/ring.glb");
+  const gltf = useGLTF("/ring.glb");
+
+  useEffect(() => {
+    gltf.scene.traverse((child) => {
+      if (!child.isMesh) return;
+      console.log(gltf);
+
+      // 🔎 DEBUG (keep this once, then remove)
+      console.log("MESH:", child.name);
+
+      // 💎 Detect diamond meshes (adjust name if needed)
+      const isDiamond =
+        child.name.toLowerCase().includes("diamond") ||
+        child.material?.name?.toLowerCase().includes("diamond");
+
+      if (isDiamond) {
+        // ✅ Replace with real diamond material
+        child.material = new THREE.MeshPhysicalMaterial({
+          color: 0xffffff,
+          transmission: 1,
+          thickness: 1,
+          roughness: 0,
+          metalness: 0,
+          ior: 2.4,
+          reflectivity: 1,
+          envMapIntensity: 19,
+          clearcoat: 1,
+          clearcoatRoughness: 0,
+        });
+
+        child.castShadow = true;
+        child.receiveShadow = true;
+      } else {
+        // 💍 Keep metal parts correct
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }, [gltf]);
 
   return (
-    <group ref={ref} visible={false} position={[0, -2, 0]}>
-      <primitive object={nodes.gold} />
-      <primitive object={nodes.silver} />
-      <Diamond ref={props.diamondRef} />
-    </group>
+    <primitive
+      ref={ref}
+      object={gltf.scene}
+      visible={false}
+      position={[0, -2, 0]}
+      dispose={null}
+    />
   );
 });
