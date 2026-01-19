@@ -51,7 +51,7 @@ export default forwardRef(function Logo(_, externalRef) {
         fontStyle="Arial"
         anchorX="center"
         anchorY="top"
-        fontWeight={300}
+        fontWeight={400}
         maxWidth={2}
       >
         {`For over a century, Dhoopad Jewellers has been synonymous with timeless elegance. Rooted in `.toUpperCase()}
@@ -65,7 +65,7 @@ export default forwardRef(function Logo(_, externalRef) {
         fontStyle="Arial"
         anchorX="center"
         anchorY="top"
-        fontWeight={300}
+        fontWeight={400}
         maxWidth={2}
       >
         {`tradition yet inspired by modern luxury, every creation is a reflection of artistry passed down`.toUpperCase()}
@@ -79,7 +79,7 @@ export default forwardRef(function Logo(_, externalRef) {
         fontStyle="Arial"
         anchorX="center"
         anchorY="top"
-        fontWeight={300}
+        fontWeight={400}
         maxWidth={0.96}
       >
         {`through generation`.toUpperCase()}
