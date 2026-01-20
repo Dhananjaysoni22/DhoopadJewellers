@@ -1,7 +1,7 @@
 import getScrollProgress from "../../utils/getScrollProgress";
 
 export default function useIntroScroll({ scroll, logoRef }) {
-  const progress = getScrollProgress(scroll, 0.0, 0.15);
+  const progress = getScrollProgress(scroll, 0.0, 0.5);
 
   if (!logoRef.current) return;
   logoRef.current.visible = progress < 0.98;

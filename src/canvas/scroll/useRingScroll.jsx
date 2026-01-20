@@ -2,7 +2,7 @@ import { MathUtils } from "three";
 import getScrollProgress from "../../utils/getScrollProgress";
 
 export default function useRingScroll({ scroll, ringRef, cloudsRef }) {
-  const progress = getScrollProgress(scroll, 0.15, 0.6);
+  const progress = getScrollProgress(scroll, 0.5, 1.0);
 
   if (!ringRef.current) return;
 

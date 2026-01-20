@@ -1,22 +1,21 @@
-import { useRef } from "react";
-import useRingTextScroll from "../scroll/useRingTextScroll";
 import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import "./RingText.css"; // ✅ IMPORTANT
 
 export default function RingText() {
-  const ref = useRef();
   const scroll = useScroll();
-  useFrame(() => {
-    useRingTextScroll({ scroll, ref });
-  });
+
+  // Page 1: 0.5 → 1.0
+  const progress = Math.min(Math.max((scroll.offset - 0.5) / 0.2, 0), 1);
 
   return (
-    <>
-      <section ref={ref} className="ring-text">
-        <h1>Crafted Precision</h1>
-        <p>Designed for elegance and durability</p>
-      </section>
-    </>
+    <div
+      className="ring-text"
+      style={{
+        opacity: progress,
+        transform: `scale(${0.95 + progress * 0.05})`,
+      }}
+    >
+      <h1>Crafted Precision</h1>
+      <p>Designed for elegance and durability</p>
+    </div>
   );
 }
