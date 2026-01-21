@@ -1,4 +1,5 @@
 import getScrollProgress from "../../utils/getScrollProgress";
+import getPageProgress from "../../utils/getPageProgress";
 
 export default function useIntroScroll({ scroll, logoRef }) {
   const progress = getScrollProgress(scroll, 0.0, 0.5);
