@@ -10,7 +10,7 @@ export default function useRingScroll({ scroll, ringRef, cloudsRef }) {
 
   ringRef.current.visible = progress > 0.001;
 
-  ringRef.current.position.x = MathUtils.lerp(0, -0.5, progress);
+  ringRef.current.position.x = MathUtils.lerp(-0.4, -0.5, progress);
   ringRef.current.position.y = MathUtils.lerp(1.2, -0.2, progress);
 
   ringRef.current.rotation.x = MathUtils.lerp(-1.2, -0.2, progress);

@@ -1,10 +1,10 @@
 import { Color } from "three";
 import getPageProgress from "../../utils/getPageProgress";
 
-const bgStart = new Color("#8fa3b8");
-const bgMid = new Color().setRGB(0.96, 0.78, 0.82);
-const bgEnd = new Color().setRGB(0.77, 0.55, 0.75);
-const bg3 = new Color().setRGB(0.66, 0.98, 0.78);
+const bgStart = new Color("#8fa3b8"); // Soft blue-grey (Diamond/Platinum)
+const bgMid = new Color("#f8f6f2"); // Pure ivory white (luxury showcase)
+const bgEnd = new Color("#f0e6db"); // Soft vanilla cream (elegant warmth)
+const bg3 = new Color("#e8ddd0"); // Warm sand beige (premium feel)
 
 export default function useBackgroundScroll({ scroll, gl, bgColor }) {
   const p0 = getPageProgress(scroll, 0, 3);

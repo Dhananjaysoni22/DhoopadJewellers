@@ -12,11 +12,14 @@ import useBackgroundScroll from "./scroll/useBackgroundScroll";
 
 import useIntroScroll from "./scroll/useIntroScroll";
 import useRingScroll from "./scroll/useRingScroll";
+import PlainRing from "../components/PlainRing/PlainRing";
+import usePlainRingScroll from "./scroll/usePlainRingScroll";
 
 export default function Scene() {
   const ringRef = useRef();
   const logoRef = useRef();
   const cloudsRef = useRef();
+  const plainRingRef = useRef();
 
   const { gl, camera } = useThree();
   const scroll = useScroll();
@@ -35,16 +38,18 @@ export default function Scene() {
       gl,
       bgColor,
     });
+    usePlainRingScroll({ scroll, plainRingRef });
   });
 
   return (
     <>
-      <Environment preset="sunset" intensity={2} />
+      <Environment preset="sunset" intensity={3} />
       <CameraRig />
       <Lights />
       <Clouds ref={cloudsRef} />
       <Logo ref={logoRef} />
       <Ring ref={ringRef} />
+      <PlainRing ref={plainRingRef} />
     </>
   );
 }

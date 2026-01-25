@@ -8,10 +8,10 @@ export default forwardRef(function Ring(props, ref) {
   useEffect(() => {
     gltf.scene.traverse((child) => {
       if (!child.isMesh) return;
-      console.log(gltf);
+      // console.log(gltf);
 
       // 🔎 DEBUG (keep this once, then remove)
-      console.log("MESH:", child.name);
+      // console.log("MESH:", child.name);
 
       // 💎 Detect diamond meshes (adjust name if needed)
       const isDiamond =
@@ -23,14 +23,16 @@ export default forwardRef(function Ring(props, ref) {
         child.material = new THREE.MeshPhysicalMaterial({
           color: 0xffffff,
           transmission: 1,
-          thickness: 1,
+          thickness: 1.2,
           roughness: 0,
           metalness: 0,
-          ior: 2.4,
+          ior: 2.417,
           reflectivity: 1,
-          envMapIntensity: 19,
+          envMapIntensity: 25,
           clearcoat: 1,
           clearcoatRoughness: 0,
+          attenuationColor: new THREE.Color("#ffffff"),
+          attenuationDistance: 0.4,
         });
 
         child.castShadow = true;

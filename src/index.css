@@ -10,6 +10,65 @@ body,
   width: 100%;
   height: 100vh;
 }
+@import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  /* margin: 0 !important; */
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-sizing: border-box !important;
+
+  /* Disable Tailwind ring utilities */
+  --tw-ring-shadow: 0 0 transparent !important;
+  --tw-ring-inset: 0 !important;
+  --tw-ring-offset-width: 0 !important;
+  --tw-ring-offset-shadow: 0 0 transparent !important;
+  box-shadow: none !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  position: fixed !important;
+  inset: 0;
+  z-index: 0;
+}
+
+#root {
+  margin: 0;
+  width: 100%;
+}
+
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section.ring {
+  justify-content: flex-end;
+  padding-right: 8vw;
+}
 /* FIX CANVAS */
 canvas {
   position: fixed !important;
