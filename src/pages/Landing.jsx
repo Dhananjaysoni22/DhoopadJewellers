@@ -1,19 +1,23 @@
 import { Canvas } from "@react-three/fiber";
+import { Scroll, ScrollControls } from "@react-three/drei";
 import { Suspense } from "react";
 import Scene from "../canvas/Scene";
-import CameraLogger from "../helpers/CameraLogger";
+import ScrollUI from "../../ui/ScrollUI";
 
 export default function Landing() {
   return (
     <div className="landing">
-      <Canvas
-        camera={{ position: [0, 0, 8], fov: 35 }}
-        gl={{ antialias: true }}
-      >
+      <Canvas camera={{ fov: 35 }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
-          <Scene />
+          {/* pages = total scroll length */}
+          <ScrollControls pages={3} damping={0.2}>
+            <Scene />
+
+            <Scroll html>
+              <ScrollUI />
+            </Scroll>
+          </ScrollControls>
         </Suspense>
-        <CameraLogger />
       </Canvas>
     </div>
   );
