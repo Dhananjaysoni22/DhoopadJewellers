@@ -16,9 +16,9 @@ body,
 *::before,
 *::after {
   /* margin: 0 !important; */
-  padding: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
+  /* padding: 0 !important; */
+  /* border: 0 !important; */
+  /* outline: 0 !important; */
   box-sizing: border-box !important;
 
   /* Disable Tailwind ring utilities */
@@ -67,7 +67,7 @@ canvas {
 
 .section.ring {
   justify-content: flex-end;
-  padding-right: 8vw;
+  /* padding-right: 8vw; */
 }
 /* FIX CANVAS */
 canvas {
@@ -90,5 +90,5 @@ canvas {
 /* Ring page layout */
 .section.ring {
   justify-content: flex-end;
-  padding-right: 8vw;
+  padding-right: 2vw;
 }
