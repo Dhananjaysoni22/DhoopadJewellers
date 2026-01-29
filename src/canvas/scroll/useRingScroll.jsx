@@ -4,7 +4,7 @@ import getPageProgress from "../../utils/getPageProgress";
 
 export default function useRingScroll({ scroll, ringRef, cloudsRef }) {
   // const progress = getScrollProgress(scroll, 0.5, 1.0);
-  const progress = getPageProgress(scroll, 1, 3);
+  const progress = getPageProgress(scroll, 1, 4);
 
   if (!ringRef.current) return;
 

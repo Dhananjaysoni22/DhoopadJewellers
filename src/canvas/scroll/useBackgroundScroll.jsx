@@ -7,9 +7,9 @@ const bgEnd = new Color("#f0e6db"); // Soft vanilla cream (elegant warmth)
 const bg3 = new Color("#e8ddd0"); // Warm sand beige (premium feel)
 
 export default function useBackgroundScroll({ scroll, gl, bgColor }) {
-  const p0 = getPageProgress(scroll, 0, 3);
-  const p1 = getPageProgress(scroll, 1, 3);
-  const p2 = getPageProgress(scroll, 2, 3);
+  const p0 = getPageProgress(scroll, 0, 4);
+  const p1 = getPageProgress(scroll, 1, 4);
+  const p2 = getPageProgress(scroll, 2, 4);
 
   if (p0 > 0) {
     bgColor.current.copy(bgStart).lerp(bgMid, p0);

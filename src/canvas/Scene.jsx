@@ -14,12 +14,14 @@ import useIntroScroll from "./scroll/useIntroScroll";
 import useRingScroll from "./scroll/useRingScroll";
 import PlainRing from "../components/PlainRing/PlainRing";
 import usePlainRingScroll from "./scroll/usePlainRingScroll";
+import Gallery from "../components/Gallery/Gallery";
 
 export default function Scene() {
   const ringRef = useRef();
   const logoRef = useRef();
   const cloudsRef = useRef();
   const plainRingRef = useRef();
+  const galleryRef = useRef();
 
   const { gl, camera } = useThree();
   const scroll = useScroll();
@@ -50,6 +52,7 @@ export default function Scene() {
       <Logo ref={logoRef} />
       <Ring ref={ringRef} />
       <PlainRing ref={plainRingRef} />
+      <Gallery ref={galleryRef} />
     </>
   );
 }

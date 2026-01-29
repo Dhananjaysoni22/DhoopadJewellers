@@ -7,7 +7,7 @@ export default function useRingTextScroll({ ref }) {
 
   if (!ref.current) return;
 
-  const progress = getPageProgress(scroll, 1, 3);
+  const progress = getPageProgress(scroll, 1, 4);
 
   ref.current.style.opacity = progress;
   ref.current.style.transform = `

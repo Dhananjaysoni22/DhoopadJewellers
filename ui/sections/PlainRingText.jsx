@@ -6,17 +6,19 @@ import { useState } from "react";
 function PlainRingText() {
   const scroll = useScroll();
   const [progress, setProgress] = useState(0);
-
   useFrame(() => {
-    // Check if we're on page 3 (final page)
-    const isOnPage3 = scroll.offset >= 2 / 3;
+    // Define page 3 range (4 pages total)
+    const page3Start = 2 / 4; // 0.5
+    const page3End = 3 / 4; // 0.75
+
+    const isOnPage3 = scroll.offset >= page3Start && scroll.offset < page3End;
 
     if (isOnPage3) {
-      // Keep text fully visible on page 3
+      // Fully visible only on page 3
       setProgress(1);
     } else {
       // Normal fade-in on page 2
-      const rawProgress = getPageProgress(scroll, 2, 3);
+      const rawProgress = getPageProgress(scroll, 2, 4);
       const clampedProgress = Math.min(Math.max(rawProgress, 0), 1);
       setProgress(clampedProgress);
     }
@@ -24,7 +26,7 @@ function PlainRingText() {
 
   return (
     <div
-      className="max-w-3xl  mr-160 text-gray-900 z-10 pointer-events-none ring-0 shadow-none"
+      className="max-w-3xl mt-90 mr-160 text-gray-900 z-10 pointer-events-none ring-0 shadow-none"
       style={{
         opacity: progress,
         transform: `scale(${0.95 + progress * 0.05})`,

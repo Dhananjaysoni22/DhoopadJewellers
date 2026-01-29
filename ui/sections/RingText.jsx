@@ -8,7 +8,7 @@ export default function RingText() {
   const [progress, setProgress] = useState(0);
 
   useFrame(() => {
-    setProgress(getPageProgress(scroll, 1, 3));
+    setProgress(getPageProgress(scroll, 1, 4));
   });
   return (
     <div
@@ -20,7 +20,7 @@ export default function RingText() {
         // height: "500px",
       }}
     >
-      <h1 className="text-5xl mt-100">Exclusivity, Crafted Just for You</h1>
+      <h1 className="text-5xl mt-200">Exclusivity, Crafted Just for You</h1>
       <p className="text-3xl flex  justify-center my-3 tracking-[0.3em]">
         Crafted Precision
       </p>

@@ -4,16 +4,17 @@ import getPageProgress from "../../utils/getPageProgress";
 export default function usePlainRingScroll({ scroll, plainRingRef }) {
   if (!plainRingRef.current) return;
 
-  let progress = MathUtils.clamp(getPageProgress(scroll, 2, 3), 0, 0.98);
+  let progress = MathUtils.clamp(getPageProgress(scroll, 2, 4), 0, 1);
 
-  const page3Start = (1 / 3) * 2;
-  const isOnPage3 = scroll.offset >= page3Start;
+  const page3Start = 2 / 4;
+  const page3End = 3 / 4;
+
+  const isOnPage3 = scroll.offset >= page3Start && scroll.offset < page3End;
 
   plainRingRef.current.visible = isOnPage3;
   if (!isOnPage3) return;
 
-  // Check if at final position
-  const isAtEnd = scroll.offset >= 1;
+  const isAtEnd = progress >= 0.98;
 
   if (isAtEnd) {
     // FINAL LOCK for exact last frame with continuous rotation

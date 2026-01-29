@@ -10,7 +10,7 @@ export default function Landing() {
       <Canvas camera={{ fov: 35 }} gl={{ antialias: true }}>
         <Suspense fallback={null}>
           {/* pages = total scroll length */}
-          <ScrollControls pages={3} damping={0.2}>
+          <ScrollControls pages={4} damping={0.2}>
             <Scene />
 
             <Scroll html>
