@@ -12,7 +12,7 @@ export default function RingText() {
   });
   return (
     <div
-      className="mr-5"
+      className=""
       style={{
         opacity: progress,
         transform: `scale(${0.95 + progress * 0.05})`,

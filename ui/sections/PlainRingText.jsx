@@ -36,7 +36,7 @@ function PlainRingText() {
         Inspired by Tomorrow
       </h1>
 
-      <div className="w-20 h-px bg-gray-400 mb-5"></div>
+      {/* <div className="w-20 h-px bg-gray-400 mb-5"></div> */}
 
       <p className="text-sm font-semibold tracking-widest mb-3 opacity-50 border-0 outline-none">
         THE JAIPUR LEGACY
@@ -64,7 +64,7 @@ function PlainRingText() {
         bridge eras with grace.
       </p>
 
-      <div className=" border-l-4 p-6 mb-4 font-serif">
+      <div className=" border-l-4 p-6 mb-2 font-serif">
         <p className="text-base leading-relaxed opacity-80 font-light">
           Our commitment extends beyond creation. Every piece undergoes rigorous
           quality checks, comes with detailed gemstone certification, and is
@@ -80,7 +80,7 @@ function PlainRingText() {
         becomes our craft.
       </p>
 
-      <p className="text-3xl font-light tracking-wider border-0 outline-none mb-4">
+      <p className="text-3xl font-light tracking-wider border-0 outline-none mb-2">
         HERITAGE · INNOVATION · EXCELLENCE
       </p>
 
