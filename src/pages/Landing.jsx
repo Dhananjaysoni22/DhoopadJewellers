@@ -1,18 +1,19 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Scroll, ScrollControls, useScroll } from "@react-three/drei";
+import { Preload, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import { Suspense, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Scene from "../canvas/Scene";
 import ScrollUI from "../../ui/ScrollUI";
 import getPageProgress from "../../src/utils/getPageProgress";
 import gsap from "gsap";
+import Loader from "../Loader";
 
 // ScrollTracker component
 function ScrollTracker({ onScrollChange }) {
   const scroll = useScroll();
 
   useFrame(() => {
-    const page3Progress = getPageProgress(scroll, 3, 3);
+    const page3Progress = getPageProgress(scroll, 2, 3);
     const isOnPage3 = page3Progress > 0;
     onScrollChange(isOnPage3);
   });
@@ -70,7 +71,7 @@ export default function Landing() {
 
       <div className="landing">
         <Canvas camera={{ fov: 35 }} gl={{ antialias: true }}>
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loader />}>
             <ScrollControls pages={3} damping={0.2}>
               <ScrollTracker onScrollChange={setShowButton} />
               <Scene />
@@ -78,6 +79,7 @@ export default function Landing() {
                 <ScrollUI />
               </Scroll>
             </ScrollControls>
+            <Preload all />
           </Suspense>
         </Canvas>
 
